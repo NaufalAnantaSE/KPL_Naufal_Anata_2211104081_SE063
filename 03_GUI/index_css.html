@@ -1,0 +1,115 @@
+<!DOCTYPE html> <!-- Menentukan bahwa dokumen ini adalah dokumen HTML5 -->
+<html lang="id"> <!-- Elemen utama yang membungkus seluruh halaman, dengan atribut bahasa "id" untuk Bahasa Indonesia -->
+<head> <!-- Bagian kepala dokumen, berisi metadata dan pengaturan dokumen -->
+    <meta charset="UTF-8"> <!-- Menentukan karakter encoding sebagai UTF-8 untuk mendukung berbagai karakter -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mengatur tampilan agar responsif di perangkat mobile -->
+    <title>Contoh HTML Semantik</title> <!-- Judul halaman yang muncul di tab browser -->
+    <style>
+        /* Gaya dasar untuk seluruh halaman */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        /* Header styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Styling untuk main content */
+        main {
+            padding: 20px;
+        }
+        section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        aside {
+            background: #ddd;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body> <!-- Bagian utama dari halaman web, menampung semua konten yang terlihat -->
+    
+    <!-- Header: Bagian kepala halaman, biasanya berisi judul dan navigasi -->
+    <header>
+        <h1>Judul Website</h1> <!-- Judul utama dari website -->
+        
+        <!-- Nav: Navigasi utama website -->
+        <nav>
+            <ul> <!-- Daftar menu navigasi -->
+                <li><a href="#beranda">Beranda</a></li> <!-- Link menuju bagian Beranda -->
+                <li><a href="#tentang">Tentang</a></li> <!-- Link menuju bagian Tentang -->
+                <li><a href="#kontak">Kontak</a></li> <!-- Link menuju bagian Kontak -->
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main: Bagian utama konten website -->
+    <main>
+        
+        <!-- Section: Kelompok konten yang memiliki tema serupa -->
+        <section id="beranda">
+            <h2>Beranda</h2> <!-- Subjudul bagian Beranda -->
+            <p>Ini adalah halaman utama dari website ini.</p> <!-- Paragraf yang menjelaskan isi bagian Beranda -->
+        </section>
+
+        <section id="tentang">
+            <h2>Tentang Kami</h2> <!-- Subjudul bagian Tentang Kami -->
+            
+            <!-- Article: Konten mandiri yang bisa berdiri sendiri -->
+            <article>
+                <h3>Sejarah</h3> <!-- Subjudul artikel Sejarah -->
+                <p>Kami telah berdiri sejak tahun 2020 untuk melayani Anda.</p> <!-- Isi artikel tentang sejarah -->
+            </article>
+            <article>
+                <h3>Visi dan Misi</h3> <!-- Subjudul artikel Visi dan Misi -->
+                <p>Menjadi penyedia layanan terbaik di bidang teknologi.</p> <!-- Isi artikel tentang visi dan misi -->
+            </article>
+        </section>
+    </main>
+    
+    <!-- Aside: Konten tambahan yang terkait dengan konten utama -->
+    <aside>
+        <h2>Artikel Terkait</h2> <!-- Judul bagian artikel terkait -->
+        <ul> <!-- Daftar artikel terkait -->
+            <li><a href="#">Tips Belajar HTML</a></li> <!-- Link menuju artikel tips belajar HTML -->
+            <li><a href="#">Manfaat Penggunaan CSS</a></li> <!-- Link menuju artikel manfaat penggunaan CSS -->
+        </ul>
+    </aside>
+
+    <!-- Footer: Bagian bawah halaman, biasanya berisi informasi hak cipta atau kontak -->
+    <footer>
+        <p>&copy; 2024 Website Contoh. Semua hak dilindungi.</p> <!-- Informasi hak cipta -->
+    </footer>
+</body>
+</html>
