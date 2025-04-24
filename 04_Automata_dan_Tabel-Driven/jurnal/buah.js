@@ -23,6 +23,6 @@ class KodeBuah {
   }
 
 const buah = new KodeBuah();
-console.log(buah.getKodeBuah("Apel"));
-console.log(buah.getKodeBuah("Aprikot"));
-console.log(buah.getKodeBuah("Jeruk"))
+console.log(buah.getKodeBuah("ceri"));
+console.log(buah.getKodeBuah("kurma"));
+console.log(buah.getKodeBuah("kuldi"))
