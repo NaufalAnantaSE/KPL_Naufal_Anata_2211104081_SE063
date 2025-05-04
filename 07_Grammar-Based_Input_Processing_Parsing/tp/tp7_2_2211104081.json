@@ -1,0 +1,24 @@
+{
+    "mata_kuliah": [
+        {
+            "kode": "MK001",
+            "nama": "Bahasa Inggris"
+        },
+        {
+            "kode": "MK002",
+            "nama": "Pemrograman Web"
+        },
+        {
+            "kode": "MK003",
+            "nama": "Algoritma dan Pemrograman"
+        },
+        {
+            "kode": "MK004",
+            "nama": "Basis Data"
+        },
+        {
+            "kode": "MK005",
+            "nama": "Jaringan Komputer"
+        }
+    ]
+}
