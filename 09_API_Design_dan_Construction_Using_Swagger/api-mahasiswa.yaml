@@ -1,0 +1,188 @@
+openapi: 3.0.0
+info:
+  title: Management Mahasiswa API
+  description: API untuk mengelola data Mahasiswa dan Alamat
+  version: 3.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/telkomuniversity-244/mahasiswa/3.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: mahasiswa
+  description: Endpoint untuk manajemen mahasiswa
+- name: address
+  description: Endpoint untuk manajemen address
+paths:
+  /mahasiswa:
+    get:
+      tags:
+      - mahasiswa
+      summary: Ambil semua data mahasiswa
+      responses:
+        "200":
+          description: Daftar mahasiswa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Mahasiswa'
+    post:
+      tags:
+      - mahasiswa
+      summary: Tambah data mahasiswa
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mahasiswa_body'
+        required: true
+      responses:
+        "201":
+          description: Mahasiswa berhasil dibuat
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mahasiswa'
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+  /mahasiswa/{id}:
+    get:
+      tags:
+      - mahasiswa
+      summary: Ambil data mahasiswa sesuai id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          example: 123
+      responses:
+        "200":
+          description: Detail mahasiswa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mahasiswa'
+        "404":
+          description: Mahasiswa tidak ditemukan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+    delete:
+      tags:
+      - mahasiswa
+      summary: Hapus data mahasiswa sesuai ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          example: 123
+      responses:
+        "200":
+          description: Mahasiswa berhasil dihapus
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "404":
+          description: Mahasiswa tidak ditemukan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+components:
+  schemas:
+    Mahasiswa:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        nim:
+          type: string
+          example: "2211104081"
+        nama_lengkap:
+          type: string
+          example: naufal ananta
+        email:
+          type: string
+          example: anantanaufal250@gmail.com
+        no_hp:
+          type: string
+          example: "085876947166"
+        tanggal_lahir:
+          type: string
+          format: date
+          example: 2004-08-02
+        jenis_kelamin:
+          type: string
+          enum:
+          - laki-laki
+          - perempuan
+        created_at:
+          type: string
+          format: date-time
+          example: 2025-04-25T10:00:00Z
+        updated_at:
+          type: string
+          format: date-time
+          example: 2025-04-25T10:00:00Z
+    mahasiswa_body:
+      required:
+      - email
+      - jenis_kelamin
+      - nama_lengkap
+      - nim
+      - tanggal_lahir
+      type: object
+      properties:
+        nim:
+          type: string
+          example: "2211104081"
+        nama_lengkap:
+          type: string
+          example: naufal ananta
+        email:
+          type: string
+          example: anantanaufal250@gmail.com
+        no_hp:
+          type: string
+          example: "085876947166"
+        tanggal_lahir:
+          type: string
+          format: date
+          example: 2004-08-02
+        jenis_kelamin:
+          type: string
+          enum:
+          - laki-laki
+          - perempuan
+    inline_response_400:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input data
+    inline_response_404:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Mahasiswa not found
+    inline_response_200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: Berhasil menghapus data mahasiswa
