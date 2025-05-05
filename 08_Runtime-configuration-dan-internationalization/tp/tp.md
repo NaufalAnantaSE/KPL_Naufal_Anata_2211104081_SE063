@@ -165,5 +165,6 @@ rl.question(
 **Output**
 
 
+![image](https://github.com/user-attachments/assets/02a40593-9121-4802-b2e9-4342f33cfa1f)
 
 ---
