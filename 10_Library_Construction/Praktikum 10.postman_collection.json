@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "a54f8ca6-34cd-43e4-bf23-3d0eabac1dd6",
+		"name": "Praktikum 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27504384"
+	},
+	"item": [
+		{
+			"name": "Get All Data Mahasiswa",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/mahasiswa",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mahasiswa"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/mahasiswa",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mahasiswa"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "328"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"148-knW+qBdPBmwPerv2zeVuZ6Grmmw\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 May 2025 12:46:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Mahasiswa fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nim\": \"2211104081\",\n            \"nama_lengkap\": \"Naufal Ananta\",\n            \"email\": \"anantanaufal@gmail.com\",\n            \"no_hp\": \"085876947166\",\n            \"tanggal_lahir\": \"2004-08-02T00:00:00.000Z\",\n            \"jenis_kelamin\": \"L\",\n            \"created_at\": \"2025-05-05T12:43:51.152Z\",\n            \"updated_at\": \"2025-05-05T12:45:14.124Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get By Id Mahasiswa",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/mahasiswa/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mahasiswa",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/mahasiswa/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mahasiswa",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "326"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"146-0wYoFhrr3z6DpLtHEDV9Nhseyhc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 May 2025 12:45:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Mahasiswa fetched successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"nim\": \"2211104081\",\n        \"nama_lengkap\": \"Naufal Ananta\",\n        \"email\": \"anantanaufal@gmail.com\",\n        \"no_hp\": \"085876947166\",\n        \"tanggal_lahir\": \"2004-08-02T00:00:00.000Z\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2025-05-05T12:43:51.152Z\",\n        \"updated_at\": \"2025-05-05T12:45:14.124Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Data Mahasiswa",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nim\": \"2211104075\",\r\n    \"nama_lengkap\": \"Irfan Muria\",\r\n    \"email\": \"irfanmuria04@gmail.com\",\r\n    \"no_hp\": \"087875161921\",\r\n    \"tanggal_lahir\": \"2025-04-04\",\r\n    \"jenis_kelamin\": \"L\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/mahasiswa",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mahasiswa"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nim\": \"2211104081\",\r\n    \"nama_lengkap\": \"Naufal Ananta\",\r\n    \"email\": \"anantanaufal@gmail.com\",\r\n    \"no_hp\": \"085876947166\",\r\n    \"tanggal_lahir\": \"2025-08-01\",\r\n    \"jenis_kelamin\": \"L\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/mahasiswa",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mahasiswa"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "232"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e8-iY/UZCXnscwLq8ZZ37xc9cysE8Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 May 2025 12:43:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Mahasiswa created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"nim\": \"2211104081\",\n        \"nama_lengkap\": \"Naufal Ananta\",\n        \"email\": \"anantanaufal@gmail.com\",\n        \"no_hp\": \"085876947166\",\n        \"tanggal_lahir\": \"2025-08-01\",\n        \"jenis_kelamin\": \"L\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit Data Mahasiswa",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nim\": \"2211104075\",\r\n    \"nama_lengkap\": \"Irfan Muria\",\r\n    \"email\": \"irfanmuria04@gmail.com\",\r\n    \"no_hp\": \"087875161921\",\r\n    \"tanggal_lahir\": \"2004-04-04\",\r\n    \"jenis_kelamin\": \"L\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/mahasiswa/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mahasiswa",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nim\": \"2211104081\",\r\n    \"nama_lengkap\": \"Naufal Ananta\",\r\n    \"email\": \"anantanaufal@gmail.com\",\r\n    \"no_hp\": \"085876947166\",\r\n    \"tanggal_lahir\": \"2004-08-02\",\r\n    \"jenis_kelamin\": \"L\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/mahasiswa/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mahasiswa",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "326"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"146-+q48kxTpELOMF6HapRrU5K0vTtI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 May 2025 12:45:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Mahasiswa updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"nim\": \"2211104081\",\n        \"nama_lengkap\": \"Naufal Ananta\",\n        \"email\": \"anantanaufal@gmail.com\",\n        \"no_hp\": \"085876947166\",\n        \"tanggal_lahir\": \"2004-08-02T00:00:00.000Z\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2025-05-05T12:43:51.152Z\",\n        \"updated_at\": \"2025-05-05T12:45:14.124Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Data Mahasiswa",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/mahasiswa/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mahasiswa",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/mahasiswa/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mahasiswa",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "326"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"146-9QrI3VohHBe73EVNjgWIuuVcWfs\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 May 2025 12:50:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Mahasiswa deleted successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"nim\": \"2211104081\",\n        \"nama_lengkap\": \"Naufal Ananta\",\n        \"email\": \"anantanaufal@gmail.com\",\n        \"no_hp\": \"085876947166\",\n        \"tanggal_lahir\": \"2004-08-02T00:00:00.000Z\",\n        \"jenis_kelamin\": \"L\",\n        \"created_at\": \"2025-05-05T12:43:51.152Z\",\n        \"updated_at\": \"2025-05-05T12:45:14.124Z\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
