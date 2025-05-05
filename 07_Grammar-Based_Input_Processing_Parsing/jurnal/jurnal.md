@@ -171,6 +171,7 @@ TeamMembers.ReadJSON();
 
 **Output**
 
-![image])
+![image](https://github.com/user-attachments/assets/79f86ab8-77e3-4cb1-b3db-49395ff47c8e)
+
 
 ---
