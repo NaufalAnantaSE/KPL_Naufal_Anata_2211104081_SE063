@@ -1,4 +1,4 @@
-<div align="center">
+![image](https://github.com/user-attachments/assets/bfd0701c-db6e-4e74-a983-267e983896a1)<div align="center">
 
 **TUGAS JURNAL**  
 **KONSTRUKSI PERANGKAT LUNAK**
@@ -243,6 +243,7 @@ const ask = (question) =>
   rl.close();
 })();
 ```
+![image](https://github.com/user-attachments/assets/f6af55d4-79df-4db4-b2d9-7747402f6c0e)
 
 **Output**
 
