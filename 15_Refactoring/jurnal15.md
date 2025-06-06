@@ -189,7 +189,6 @@ main();
   ```
 
 ## Output
-
-
+![image](https://github.com/user-attachments/assets/4f4ecd12-0167-44e2-9fd1-00f4a7c19c1c)
 
 ---
