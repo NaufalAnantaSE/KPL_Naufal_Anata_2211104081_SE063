@@ -76,111 +76,120 @@ o Password tidak boleh mengandung kata dari username
 
 ## Input
 
-- matematikaLibraries.js
-
-  ```js
-  
-    const MatematikaLibraries = {
-    FPB: function (a, b) {
-        while (b !== 0) {
-        let temp = b;
-        b = a % b;
-        a = temp;
-        }
-        return Math.abs(a);
-    },
-
-    KPK: function (a, b) {
-        return Math.abs(a * b) / this.FPB(a, b);
-    },
-
-    Turunan: function (persamaan) {
-        let hasil = '';
-        let pangkat = persamaan.length - 1;
-
-        for (let i = 0; i < persamaan.length - 1; i++) {
-        let koef = persamaan[i];
-        let turunan = koef * pangkat;
-
-        if (turunan === 0) {
-            pangkat--;
-            continue;
-        }
-
-        if (hasil !== '' && turunan > 0) {
-            hasil += ' + ';
-        } else if (turunan < 0) {
-            hasil += ' - ';
-        }
-
-        hasil += Math.abs(turunan);
-        if (pangkat - 1 > 1) {
-            hasil += `x${pangkat - 1}`;
-        } else if (pangkat - 1 === 1) {
-            hasil += 'x';
-        }
-
-        pangkat--;
-        }
-
-        return hasil.trim();
-    },
-
-    Integral: function (persamaan) {
-        let hasil = '';
-        let pangkat = persamaan.length - 1;
-
-        for (let i = 0; i < persamaan.length; i++) {
-        let koef = persamaan[i];
-        let pangkatBaru = pangkat + 1;
-        let hasilKoef = koef / pangkatBaru;
-
-        if (hasil !== '' && hasilKoef > 0) {
-            hasil += ' + ';
-        } else if (hasilKoef < 0) {
-            hasil += ' - ';
-        }
-
-        hasil += Math.abs(hasilKoef) === 1 ? '' : Math.abs(hasilKoef).toFixed(1).replace(/\.0$/, '');
-        if (pangkatBaru === 1) {
-            hasil += 'x';
-        } else if (pangkatBaru > 1) {
-            hasil += `x${pangkatBaru}`;
-        }
-
-        pangkat--;
-        }
-
-        hasil += ' + C';
-        return hasil.trim();
-    }
-    };
-
-    module.exports = MatematikaLibraries;
-  ```
-
 - index.js
+```js
+  const fs = require('fs');
+const readline = require('readline-sync');
+const crypto = require('crypto');
 
-  ```js
-    const Matematika = require('./matematika');
+const DATA_FILE = 'users.json';
 
-    console.log("FPB(60, 45) =", Matematika.FPB(60, 45));       
-    console.log("KPK(12, 8) =", Matematika.KPK(12, 8));           
+function loadUsers() {
+    if (!fs.existsSync(DATA_FILE)) {
+        return {};
+    }
+    const data = fs.readFileSync(DATA_FILE);
+    return JSON.parse(data);
+}
 
-    console.log("Turunan dari [1, 4, -12, 9]:", Matematika.Turunan([1, 4, -12, 9]));
+function saveUsers(users) {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
+}
 
-    console.log("Integral dari [4, 6, -12, 9]:", Matematika.Integral([4, 6, -12, 9]));
+function hashPassword(password) {
+    return crypto.createHash('sha256').update(password).digest('hex');
+}
+
+function validateUsername(username) {
+    if (!/^[A-Za-z]+$/.test(username)) {
+        return 'Username hanya boleh huruf alfabet ASCII.';
+    }
+    if (username.length < 4 || username.length > 20) {
+        return 'Panjang username harus 4-20 karakter.';
+    }
+    return '';
+}
+
+function validatePassword(username, password) {
+    if (password.toLowerCase().includes(username.toLowerCase())) {
+        return 'Password tidak boleh mengandung username.';
+    }
+    if (!/[!@#$%^&*]/.test(password)) {
+        return 'Password harus mengandung minimal 1 karakter unik (!@#$%^&*).';
+    }
+    if (password.toLowerCase().includes(username.toLowerCase())) {
+        return 'Password tidak boleh mengandung username.';
+    }
+    return '';
+}
+
+function register() {
+    console.log('\n=== REGISTRASI ===');
+    const username = readline.question('Username: ');
+    const password = readline.question('Password: ', { hideEchoBack: true });
+
+    let error = validateUsername(username);
+    if (error) {
+        return console.log('Error:', error);
+    }
+
+    error = validatePassword(username, password);
+    if (error) {
+        return console.log('Error:', error);
+    }
+
+    const users = loadUsers();
+    if (users[username]) {
+        return console.log('Username sudah terdaftar.');
+    }
+
+    users[username] = hashPassword(password);
+    saveUsers(users);
+    console.log('Registrasi berhasil!\n');
+}
+
+function login() {
+    console.log('\n=== LOGIN ===');
+    const username = readline.question('Username: ');
+    const password = readline.question('Password: ', { hideEchoBack: true });
+
+    const users = loadUsers();
+    if (users[username] && users[username] === hashPassword(password)) {
+        console.log(`Login berhasil! Selamat datang, ${username}\n`);
+    } else {
+        console.log('Login gagal: Username atau password salah.\n');
+    }
+}
+
+function main() {
+    while (true) {
+        console.log('1. Register\n2. Login\n3. Keluar');
+        const choice = readline.question('Pilih menu (1-3): ');
+        if (choice === '1') {
+            register();
+        } else if (choice === '2') {
+            login();
+        } else if (choice === '3') {
+            break;
+        } else {
+            console.log('Pilihan tidak valid\n');
+        }
+    }
+}
+
+main();
+```
+
+- users.json
+
+  ```json
+    {
+    "naufalananta": "e93c53d042eb630963c6a8b1d7dff3c7c98f84d04a8c9196570e2db001ce55ff"
+    }
   ```
 
 ## Output
 
-```bash
-Naufal@Naufal-Ananta MINGW64 /e/smester6/praktikum_KPL/10_Library_Construction/Jurnal (main)
-$ node index.js
-FPB(60, 45) = 15
-KPK(12, 8) = 24
-Turunan dari [1, 4, -12, 9]: 3x2 + 8x - 12
-Integral dari [4, 6, -12, 9]: x4 + 2x3 - 6x2 + 9x + C
-```
+
 
 ---
