@@ -158,6 +158,7 @@ source code yang dijelaskan).
 ## Output
 
 ```bash
+![image](https://github.com/user-attachments/assets/365f9504-c6b2-487a-b4c9-babc30f467af)
 
 ```
 
