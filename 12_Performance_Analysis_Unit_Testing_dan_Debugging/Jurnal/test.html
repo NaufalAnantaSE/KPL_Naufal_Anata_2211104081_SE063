@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+
+<body>
+    <h3>Unit Test - CariNilaiPangkat</h3>
+    <script src="logic.js"></script>
+    <script>
+        const tests = [
+            [2, 3, 8],
+            [0, 0, 1],
+            [2, 0, 1],
+            [2, -1, -1],
+            [101, 2, -2],
+            [2, 11, -2],
+            [9, 30, -3],
+        ];
+
+        tests.forEach(([a, b, expected]) => {
+            const result = CariNilaiPangkat(a, b);
+            console.log(`Test ${a}^${b} = ${result} → ${result === expected ? "PASSED" : "FAILED"}`);
+        });
+    </script>
+</body>
+
+</html>
