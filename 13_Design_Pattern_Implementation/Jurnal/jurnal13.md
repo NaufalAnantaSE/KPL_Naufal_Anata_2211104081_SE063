@@ -49,7 +49,7 @@ C. Berikan tiga kelebihan dan kekurangan dari design pattern “Singleton”.
 
 ## Input
 
-- index.html
+- main.js
 
 ```js
 const ManajerData = require('./ManajerDataSingleton');
