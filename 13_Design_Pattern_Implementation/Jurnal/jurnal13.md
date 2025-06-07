@@ -124,7 +124,6 @@ module.exports = ManajerDataSingleton;
 ```
 
 ## Output
-
-
+![image](https://github.com/user-attachments/assets/938b56a2-9450-4c27-9d8b-50e40953c1a6)
 
 ---
